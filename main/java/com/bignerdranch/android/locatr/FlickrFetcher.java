@@ -1,5 +1,6 @@
 package com.bignerdranch.android.locatr;
 
+import android.location.Location;
 import android.net.Uri;
 import android.util.Log;
 import com.google.gson.Gson;
@@ -101,6 +102,11 @@ public class FlickrFetcher {
         return downloadGalleryItems(url);
     }
 
+    public List<GalleryItem> searchPhotos(Location location){
+        String url = buildUrl(location);
+        return downloadGalleryItems(url);
+    }
+
     private String buildUrl(String method, String query, int currentPage){
         Uri.Builder uriBuilder = ENDPOINT.buildUpon().appendQueryParameter("method", method);
         if(method.equals(SEARCH_METHOD)){
@@ -110,6 +116,14 @@ public class FlickrFetcher {
             setCurrentPage(currentPage);
         }
         return uriBuilder.build().toString();
+    }
+
+    private String buildUrl(Location location){
+        return ENDPOINT.buildUpon()
+                .appendQueryParameter("method", SEARCH_METHOD)
+                .appendQueryParameter("lat", "" + location.getLatitude())
+                .appendQueryParameter("lon", "" + location.getLongitude())
+                .build().toString();
     }
 
     private List<GalleryItem> downloadGalleryItems(String url){

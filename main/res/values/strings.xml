@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Locatr</string>
     <string name="search">Find an image near you</string>
+    <string name="permissions_required">Location permissions required</string>
+    <string name="permissions_message">Locatr requires location permissions to query Flickr for photos near you</string>
+    <string name="dialog_accept">Got it</string>
 </resources>
