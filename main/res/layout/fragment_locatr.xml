@@ -10,11 +10,4 @@
         android:background="@android:color/white"
         android:layout_centerInParent="true"/>
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_centerInParent="true"
-        android:id="@+id/progress_bar"/>
-
 </RelativeLayout>
